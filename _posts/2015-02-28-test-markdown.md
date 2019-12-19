@@ -1,7 +1,7 @@
 ---
 layout: post
-title: ¿Y...Cuál su gracia?
-subtitle: Each post also has a subtitle
+title: Economía Aplicada Sectorial
+subtitle: Descripción de la asignatura
 gh-repo: daattali/beautiful-jekyll
 gh-badge:
   - star
@@ -13,11 +13,12 @@ comments: true
 published: true
 ---
 
-Mi nombre es Francisco Fernández, Economista agrario y de los recursos naturales, profesor de Economía Aplicada Sectorial y Métodos Estadísticos de la Escuela de Agronomía de la Universidad Mayor. Mis principales intereses se relacionan con el desarrollo de herramientas cuantitativas que apoyen a la toma de decisiones del sector agropecuario y  otros sectores económicos relacionados con recursos naturales. Entre ellos, el desarrollo de modelos que permitan analizar los probables impactos económicos del cambio climático en la agricultura nacional o la evaluación ex-ante de políticas de desarrollo y adaptación del sector.
+Asignatura teórica-práctica que permite entender la importancia de la teoría económica en el ejercicio del ingeniero agrónomo, además de conocer, diseñar y utilizar instrumentos y estrategias pertinentes que permitan la toma de decisiones eficientes y eficaces desde una perspectiva económica.  De igual forma es relevante en la asignatura la capacidad de identificar y discutir problemáticas relacionadas al sector agrario y las políticas públicas implementadas. Así mismo, se busca que el alumno adquiera las nociones básicas de herramientas cuantitativas para la mejor toma de decisiones dentro del sector silvoagropecuario. 
 
-**Here is some bold text**
+## **Aportes de la Asignatura al perfil de egreso**
+Este curso proporcionará a los estudiantes de Agronomía las herramientas necesarias que le permitan, a través del enfoque económico, movilizar recursos para organizar y gestionar instancias propias de la profesión, además de administrar y gestionar los recursos escasos en forma organizada y eficiente. Así mismo, tendrá la capacidad de observar su realidad para adoptar decisiones con capacidad analítica en el marco de una agricultura globalizada y competitiva, siendo capaz de discutir, aceptar o rechazar los juicios y opiniones que tienen los demás. 
 
-## Here is a secondary heading
+##  Textos: 
 
 Here's a useless table:
 
