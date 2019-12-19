@@ -20,15 +20,20 @@ description: A virtual proof that I'm awesome
 
 # List of links in the navigation bar
 navbar-links:
-  About Me: "aboutme"
+  Acerca de: "aboutme"
   Projectos:
     - Musels: "http://www.eula.cl/musels/"
     - CAPES: "http://www.capes.cl/"
-  Author's home: "http://deanattali.com"
+  Publicaciones recientes: 
+    - REC-2019: "https://link.springer.com/article/10.1007/s10113-018-1380-0"
+    - OCMA-2018: "https://www.sciencedirect.com/science/article/abs/pii/S0964569116304264"
+    - AgrSys-2017: "https://www.sciencedirect.com/science/article/pii/S0308521X16301007"
+    - REC-2017: "https://link.springer.com/article/10.1007/s10113-017-1152-2"
+    - WARM-2016: "https://link.springer.com/article/10.1007/s11269-016-1227-8"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/img/avatar-icon.png"
+# avatar: "/img/avatar-icon.png"
 
 # If you want to have an image logo in the top-left corner instead of the title text,
 # then specify the following parameter
