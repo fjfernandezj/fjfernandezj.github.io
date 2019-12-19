@@ -30,6 +30,7 @@ navbar-links:
     - AgrSys-2017: "https://www.sciencedirect.com/science/article/pii/S0308521X16301007"
     - REC-2017: "https://link.springer.com/article/10.1007/s10113-017-1152-2"
     - WARM-2016: "https://link.springer.com/article/10.1007/s11269-016-1227-8"
+    - Economics-2015: "http://www.economics-ejournal.org/economics/journalarticles/2015-10"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
