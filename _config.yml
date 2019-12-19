@@ -20,7 +20,7 @@ description: A virtual proof that I'm awesome
 
 # List of links in the navigation bar
 navbar-links:
-  Acerca de: "FranciscoJ.Fernández"
+  Acerca de: "aboutme"
   Projectos:
     - Musels: "http://www.eula.cl/musels/"
     - CAPES: "http://www.capes.cl/"
