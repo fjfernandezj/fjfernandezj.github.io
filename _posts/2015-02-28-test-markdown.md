@@ -1,14 +1,19 @@
 ---
 layout: post
-title: Test markdown
+title: ¿y...cuál su gracia?
 subtitle: Each post also has a subtitle
 gh-repo: daattali/beautiful-jekyll
-gh-badge: [star, fork, follow]
-tags: [test]
+gh-badge:
+  - star
+  - fork
+  - follow
+tags:
+  - test
 comments: true
+published: true
 ---
 
-You can write regular [markdown](http://markdowntutorial.com/) here and Jekyll will automatically convert it to a nice webpage.  I strongly encourage you to [take 5 minutes to learn how to write in markdown](http://markdowntutorial.com/) - it'll teach you how to transform regular text into bold/italics/headings/tables/etc.
+Mi nombre es Francisco Fernández, Economista agrario y de los recursos naturales, profesor de Economía Aplicada Sectorial y Métodos Estadísticos de la Escuela de Agronomía de la Universidad Mayor. Mis principales intereses se relacionan con el desarrollo de herramientas cuantitativas que apoyen a la toma de decisiones del sector agropecuario y  otros sectores económicos relacionados con recursos naturales. Entre ellos, el desarrollo de modelos que permitan analizar los probables impactos económicos del cambio climático en la agricultura nacional o la evaluación ex-ante de políticas de desarrollo y adaptación del sector.
 
 **Here is some bold text**
 
