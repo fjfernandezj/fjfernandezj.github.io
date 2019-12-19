@@ -1,16 +1,9 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: Economía, Agricultura Medio Ambiente y Recursos Naturales
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+Mi nombre es Francisco Fernández, Economista Agrario y de los Recursos Naturales, profesor de Economía Aplicada Sectorial y Métodos Estadísticos de la Escuela de Agronomía de la Universidad Mayor. Mis principales intereses se relacionan con el desarrollo de herramientas cuantitativas que apoyen a la toma de decisiones del sector agropecuario y  otros sectores económicos relacionados con recursos naturales Y medio ambiente. Entre ellos, el desarrollo de modelos que permitan analizar los probables impactos económicos del cambio climático en la agricultura nacional o la evaluación ex-ante de políticas de desarrollo y adaptación del sector.
 
-- I rock a great mustache
-- I'm extremely loyal to my family
 
-What else do you need?
-
-### my history
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
