@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Economía Aplicada Sectorial
-image: /img/hello_world.jpeg
 ---
 
 ## Descripción de la asignatura
