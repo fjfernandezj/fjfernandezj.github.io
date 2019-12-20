@@ -1,10 +1,24 @@
 ---
 layout: post
-title: Flake it till you make it
-subtitle: Excerpt from Soulshaping by Jeff Brown
+title: Red de Datos de Contabilidad Agrícola ¿Podríamos hacer algo así en Chile?
+subtitle: ¿Qué beneficios podría entregar un instrumento como este?
 bigimg: /img/path.jpg
-tags: [books, test]
+tags: [policy, data]
 ---
+
+La Red de Datos de Contabilidad Agrícola (FADN por sus siglas en inglés) es un instrumento utilizado para evaluar los ingresos de las explotaciones agrícolas y también los impactos de la Política Agrícola Común (PAC) de la Comunidad Europea (EU). 
+
+Podemos ir un poco más alla del Censo
+
+Necesitamos Datos y darle sentido a los datos 
+
+¿Para que serviría en Chile?
+Información periódica sobre los ingresos y la economía de las explotaciones agrícolas, incluidos los costes de producción, los márgenes (base de datos pública, publicaciones, análisis ad-hoc),
+Análisis ex-ante del impacto de las propuestas de políticas -reformas y otras medidas relacionadas al sector agropecuario,
+Análisis ex-post de las medidas relacionadas al sector agropecuario,
+En investigación-múltiples usos relacionados con la economía de las explotaciones agrícolas (productividad, competitividad, medio ambiente, bienes públicos, efectos de las políticas).
+
+https://review.chicagobooth.edu/economics/2019/article/purely-evidence-based-policy-doesn-t-exist
 
 Under what circumstances should we step off a path? When is it essential that we finish what we start? If I bought a bag of peanuts and had an allergic reaction, no one would fault me if I threw it out. If I ended a relationship with a woman who hit me, no one would say that I had a commitment problem. But if I walk away from a seemingly secure route because my soul has other ideas, I am a flake?
 
