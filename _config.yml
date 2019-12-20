@@ -32,7 +32,7 @@ navbar-links:
     - WARM-2016: "https://link.springer.com/article/10.1007/s11269-016-1227-8"
     - Economics-2015: "http://www.economics-ejournal.org/economics/journalarticles/2015-10"
   Curriculum: 
-    - Español: "https://docs.google.com/gview?https://github.com/fjfernandezj/curriculum_esp/raw/master/CV_FranciscoFernandez_espa%C3%B1ol_actualizado.pdf&embedded=true"
+    - Español: "https://docs.google.com/gview?url=https://github.com/fjfernandezj/curriculum_esp/raw/master/CV_FranciscoFernandez_espa%C3%B1ol_actualizado.pdf&embedded=true"
     - Inglés:  "http://www.eula.cl/musels/"
 
 # Image to show in the navigation bar - image must be a square (width = height)
