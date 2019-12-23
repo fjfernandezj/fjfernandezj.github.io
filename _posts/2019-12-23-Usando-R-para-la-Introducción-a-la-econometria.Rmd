@@ -1,7 +1,16 @@
 ---
 layout: post
-title: Introducción a la econometría WooldRige
+title: Introducción a la Econometría con WooldRige
+subtitle: Primer post
+gh-repo: daattali/beautiful-jekyll
+gh-badge:
+  - star
+  - fork
+  - follow
 tags: [econometrics, R]
+  - test
+comments: true
+published: true
 ---
 
 # Distribuciones de Probabilidad
