@@ -4,19 +4,13 @@ title: Introducción a la econometría WooldRige
 tags: [econometrics, R]
 ---
 
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 # Distribuciones de Probabilidad
-
 
 ## Funcion de Distribucion acumulada (CDF)
 
 
 ### Ejemplo B.6 Probabilidades para una variable aleatoria Normal
 Asumimos que X posee una distribución normal $X \sim Normal(4,9)$ y queremos calcular $P(2 < X \le 6 )$. Podemos reescribir el problema para que se establezca en términos de una distribución normal estándar como lo muestra Wooldrige (2016): $P(2 < X \le 6 ) = \Phi(2/3) - \Phi(-2/3)$ (se ve a través de Tabla G.1 - Apendice G pag 831). También podemos ahorrarnos la transformación y trabajar directamente con la distribución normal no estándar. Tenga cuidado de que el tercer argumento en el comando de R para la distribución normal no sea la varianza $\sigma^2 = 9$ sino la desviación estándar $\sigma = 3$. 
-
 
 ```{r}
 #Utilizando la transformación
