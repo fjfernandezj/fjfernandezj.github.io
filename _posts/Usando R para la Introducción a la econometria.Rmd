@@ -1,0 +1,314 @@
+---
+title: "WooldRige"
+author: "Francisco Fernández"
+date: "06-11-2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Distribuciones de Probabilidad
+
+
+## Funcion de Distribucion acumulada (CDF)
+
+
+### Ejemplo B.6 Probabilidades para una variable aleatoria Normal
+Asumimos que X posee una distribución normal $X \sim Normal(4,9)$ y queremos calcular $P(2 < X \le 6 )$. Podemos reescribir el problema para que se establezca en términos de una distribución normal estándar como lo muestra Wooldrige (2016): $P(2 < X \le 6 ) = \Phi(2/3) - \Phi(-2/3)$ (se ve a través de Tabla G.1 - Apendice G pag 831). También podemos ahorrarnos la transformación y trabajar directamente con la distribución normal no estándar. Tenga cuidado de que el tercer argumento en el comando de R para la distribución normal no sea la varianza $\sigma^2 = 9$ sino la desviación estándar $\sigma = 3$. 
+
+
+```{r}
+#Utilizando la transformación
+pnorm(2/3) - pnorm(-2/3)
+
+# Trabajando directamente con la distribucion de x
+pnorm(6,4,3) - pnorm(2,4,3)
+```
+
+En este caso se obtiene un resultado levemente diferente a lo que presenta Wooldrige (.498) ya que estamos trabajando con los 2/3 exactos en vez de los .67 redondeados que utiliza el texto. El mismo enfoque puede ser utilizado para el siguiente problema
+
+```{r}
+1 - pnorm(2,4,3) + pnorm(-2,4,3)
+```
+El gráfico de la función de distribución acumulada (cdf) es una función de paso para distribuciones discretas y, por lo tanto, se puede crear mejor usando la opción type = "s" de plot
+```{r}
+x <- seq(-1,10)
+Fx <- pbinom(x,10,0.2)
+plot(x,Fx, type = "s")
+```
+
+El cdf de una distribución continua se puede trazar muy bien con el comando de curva. El cdf en forma de S de la distribución normal se muestra a continuación.
+
+```{r}
+curve(pnorm(x), -4, 4)
+```
+
+### Ejemplo C.2 Efectos de los subsidios para la capacitación laboral en la productividad de los trabajadores
+En este ejemplo analizamos las "tasas de desperdicios" de empresas que recibieron subsidios para la capacitación laboral en 1988. Las tasas de desperdicios para 1987 y 1988 se presentan en la tabla C3 del libro de Wooldrige y a continuación las agregaremos en forma manual. Aca estamos interesados en en el cambio ocurrido entre años. El calculo del promedio como del intervalo de confianza.
+
+```{r}
+# Introducción de datos manuales
+sr87 <- c(10,1,6,.45,1.25,1.3,1.06,3,8.18,1.67,.98,1,.45,5.03,8,9,18,.28,7,3.97)
+
+sr88 <- c(3,1,5,.5,1.54,1.5,.8,2,.67,1.17,.51,.5,.61,6.7,4,7,19,.2,5,3.83)
+
+# Calculo de Cambio
+(Change <- sr88 - sr87)
+
+# Ingredientes para la formula de intervalo de confianza (CI)
+(avgCh <- mean(Change))
+
+(n <- length(Change))
+
+(sdCh <- sd(Change))
+
+(se <- sdCh/sqrt(n)) #error standard 
+
+(c <- qt(.975, n-1))
+
+# Intervalo de Confianza
+c(avgCh - c*se, avgCh + c*se)
+
+# Calculo automático de intervalo de confianza
+t.test(Change)
+  
+```
+
+### Ejemplo C.3 Discriminación Racial en las Contrataciones
+Analizaremos la discriminación racial utilizando la base de dato AUDIT.dta. La variable $y$ representa la diferencia en tasas de contratación entre aplicantes blancos y negros con CVs idénticos. Antes de calcular el promedio, el tamaño de la muestra, la desviación estandard y el error estandard del promedio de la muestra. El siguiente Script calcula el valor para el factor c como el percentil 97.5 de la distribución normal estandard la cual es (muy cercana) 1.97. Finalmente, el intervalo de confianza 95 y 99 es reportado.
+
+```{r}
+library(foreign)
+
+audit <- read.dta("data/audit.dta")
+
+#Ingredientes para la formula de IC
+(avgy <- mean(audit$y))
+
+(n <- length(audit$y))
+
+(sdy <- sd(audit$y))
+
+(se <- sdy/sqrt(n))
+
+(c <- qnorm(0.975))
+
+#Intervalo de confianza 95%
+avgy + c * c(-se, + se)
+
+#Intervalo de confianza 99%
+avgy + qnorm(0.995) * c(-se, + se)
+
+```
+
+# Análisis de Regresión con datos de corte transversal Simple
+
+## El modelo de regresión Simple
+
+### Ideas claves
+* El modelo de regresión simple puede utilizarse para estudiar la relación entre dos variables
+
+* Se parte de la premisa que $y$ y $x$ son dos variables que representan a una población se desea "explicar $y$ en términos de $X$"
+
+- Un modelo que "explique $y$ en términos de $x$" se establece a través de la ecuación $\eqref{eq:lm}$ :
+$$
+\begin{equation}
+y = \beta_0 + \beta_1x + u
+\label{eq:lm}
+\tag{1}
+\end{equation}
+$$
+
+* La ecuación $\eqref{eq:lm}$ define el modelo de regresión lineal simple.
+
+* La variable $u$, llamada **término de error**, o **perturbación** en la relación, representa factores distintos a $x$ que afectan a $y$.  
+
+* La ecuación $\eqref{eq:lm}$ también resuelve le problema de la relación funcional entre $y$ y $x$. Si los demás factores en $u$ permanecen constantes,de manera que el cambio en $u$ sea cero, $\Delta u = 0$, entonces $x$ tiene un efecto lineal sobre $y$:
+
+$$
+\begin{equation}
+\Delta y = \beta_1 \Delta x  si  \Delta u = 0
+\label{eq:Du}
+\tag{2}
+\end{equation}
+$$
+* Por tanto, el cambio en $y$ es simplemente $\beta_1$ multiplicado por el cambio en $x$. Esto significa $\beta_1$ es el **parámetro de la pendiente** en la relación entre $y$ y $x$, cuando todos los demás factores en $u$ permanecen constantes.
+
+* La linealidad de la ecuación $\eqref{eq:lm}$ implica que todo cambio de $x$ en una unidad tiene siempre el mismo efecto sobre $y$, sin importar el valor inicial de $x$.
+
+## Obtención de las estimaciones de mínimos ordinarios
+* Para esimar los parámetros $\beta_0$ y $\beta_1$ de la ecuación $\eqref{eq:lm}$ se necesita tomar una muestra de la población. Sea ${(x_i,y_i):i=1,...,n}$ una muestra aleatoria de tamaño $n$ tomada de la población. De esta muestra aleatoria de $y$ y $x$, de acuerdo a Wooldrige (2016, sección 2.2), las estimaciones de mínimos cuadrados ordinarios (OLS) son:
+
+$$
+\begin{equation}
+\hat{\beta_0} = \hat{y} - \hat{\beta_1} \hat{x}  
+\label{eq:beta0}
+\tag{3}
+\end{equation}
+$$
+$$
+\begin{equation}
+\hat{\beta_1} =  {COV(x,y) \over VAR(x)}  
+\label{eq:beta1}
+\tag{4}
+\end{equation}
+$$
+
+* Basado en estos parámetros estimados, la linea de regresión de Mínimos Cuadrados Ordinarios es:
+
+$$
+\begin{equation}
+\hat{y}  = \hat{\beta_0} + \hat{\beta_1} \hat{x}  
+\label{eq:ols}
+\tag{5}
+\end{equation}
+$$
+Para una muestra dada, solo necesitamos calcular los cuatro estadisticos $\hat{y}$, $\hat{x}$, $Cov(x,y)$, y $Var(x)$ e insertarlas en las ecuaciones anteriores. 
+
+A continuación veremos 3 ejemplos de regresión simple obtenidos empleando datos reales. Hay que tener ojo de que estas no necesariamente implican una relación causal. Para esto luego veremos las propiedades estadísticas de los estimadores de MCO. 
+
+### Ejemplo 2.3 Sueldo de los Directores Generales (CEO) y rendimiento sobre el capital
+En la población de los directores generales, sea $y$ el sueldo (salary) en miles de dolares. De manera que $y = 856.3$ corresponde a un suelo anual de 856,300 y $y = 1,452.6$ corresponde a un sueldo de 1,452,600. Sea $x$ el promedio, en los últimos tres años, del rendimiento sobre el capital (roe) en las empresas de los CEO. (El rendimiento sobre el capital se define en términos de utilidad neta como porcentaje de acciones comunes.) Por ejemplo, si $roe = 10$, el rendimiento promedio sobre el capital es 10 por ciento. 
+
+Para analizar esto se utiliza la base de datos CEOSAL1.dta, la cual contiene información correspondiente al año 1990, sobre 209 CEO; estos datos fueron obtenidos de *Business Week* (5/6/91). En esta muestra, el sueldo anual promedio es 1,281,120, y los sueldos menor y mayorson 223,000 y 14,822,000, respectivamente. La media del rendimiento sobre capital en 1988, 1989 y 1990 es 17.18% y los valores menor y mayor son 0,5 y 56.3%, respectivamente. 
+
+Para estudiar la relación entre esta medida del desempeño de una empresa y el pago que reciben los CEO, se postula el modelo
+
+$$
+\begin{equation}
+salary  = \beta_0 + \beta_1 roe + u  
+\label{eq:Ex2.3}
+\tag{6}
+\end{equation}
+$$
+En el siguiente script se calculan los 4 estadisticos que se necesitan para las ecuaciones $\eqref{eq:beta0}$ y $\eqref{eq:beta1}$ de manera que se puedan calcular manualmente las formulas de OLS
+
+```{r}
+library(foreign)
+
+ceosal1 <- read.dta("data/ceosal1.dta")
+
+#Ingredientes para las formulas de OLS
+cov(ceosal1$roe, ceosal1$salary)
+
+var(ceosal1$roe)
+
+mean(ceosal1$salary)
+
+mean(ceosal1$roe)
+
+# Calculo manual de coeficientes de OLS
+(b1hat <- cov(ceosal1$roe,ceosal1$salary)/var(ceosal1$roe))
+
+(b0hat <- mean(ceosal1$salary) - b1hat*mean(ceosal1$roe))
+
+# Calculo automático a través de comando lm (linear model)
+lm(ceosal1$salary ~ ceosal1$roe)
+```
+
+De esta manera la linea de regresión MCO (luego del calculo del intercepto y la pendiente) que relaciona sueldo (salary) y rendimiento sobre capital (roe)
+
+$$
+\begin{equation}
+\hat{salary}  = 963.2 + 18.5roe + u  
+\label{eq:Ex2.3_res}
+\tag{7}
+\end{equation}
+$$
+¿Cómo se interpreta esta ecuación?
+Primero, si el rendimiento sobre el capital es 0, $roe = 0$, entonces el sueldo que se predice corresponde al intercepto, 963.191, es decir, 963,191, dado que salary se mide en miles. Luego, el cambio que se predice para el sueldo en función del cambio en el roe se exresa como $\Delta\hat{salary}=18,501$ ($\Delta roe$). Esto significa que cuando el rendimiento sobre el capital aumente en un punto porcentual, $\Delta roe = 1$, se predice que el sueldo variará aproximadamente en 18.5, es decir, 18,500. 
+
+En el siguiente script se puede ver como guardar los resultados de la regresión en una variable CEOregress y luego usarla como un argumento para el comando **abline** para agregar una linea de regresion a un gráfico de puntos 
+
+```{r}
+#Regresion de MCO
+CEOregres <- lm(ceosal1$salary ~ ceosal1$roe)
+
+#Scatter plot (grafico de puntos) --> restringiendo eje y
+plot(ceosal1$roe, ceosal1$salary, ylim = c(0,4000))
+
+# Agregar linea de regresión
+abline(CEOregres)
+```
+
+## Ejemplo 2.4 Salario y Educación
+Para la población de personas en la fuerza de trabajoen 1976, sea $y = wage (salario)$, donde $wage$ se mide en dólares por hora. Entonces, si para una determinada persona $wage = 6.75$, significa que su salario por hora es 6.75 dolares. Sea $x = educ$ años de educación; por ejemplo, $educ = 12$ corresponde a haber terminado el bachillerato. Como el salario promedio de la muestra es 5,90 dolares, el índice de precios al consumidor indica que esta cantidad es equivalente a 19,06 dolares de 2003.
+
+Utilizando la base de datos *WAGE1.dta*. estudiaremos la relacion entre educación y salario, siendo nuestro modelo de regresión: 
+$$
+\begin{equation}
+wage  = \beta_0 + \beta_1 education + u
+\label{eq:wage01}
+\tag{8}
+\end{equation}
+$$
+En el siguiente script analizaremos los datos:
+
+```{r}
+library(foreign)
+
+wage1 <- read.dta("data/wage1.dta")
+
+# regresión MCO
+lm(wage1$wage ~ wage1$educ)
+
+```
+
+Se obtiene la siguiente linea de refresión de MCO (o función de regresion muestral) ($n = 526$):
+
+$$
+\begin{equation}
+\hat(wage)  = -0.90 + 0.54 education 
+\label{eq:wage02}
+\tag{9}
+\end{equation}
+$$
+El intercepto -0.90 significa literalmente que para una persona sin ninguna educación el sueldo por hora que se predice es -90 centavos por hora (lo cual no tiene sentido). Por eso ojo con la interpretación de este resultado. Esta linea de regresión no es adecuada para niveles de educación muy bajos.
+
+Por otro lado la pendiente estimada de la ecuación $\eqref{eq:wage02}$ implica que un año adicional de educación hace que el salario por hora aumente 54 centavos por hora.
+
+## Ejemplo 2.5 Resultados de una votación y gastos de campaña
+La siguiente base de datos a analizar contiene información en gastos de campaña y los resultados de campañacorrespondientes a 173 contiendas bipartidistas por la càmara de Representantes de Estos Unidos , en 1988.
+
+En la base de datos, en cada contienda hay dos candidatos, A y B. Sea *voteA* el porcentaje de votos obtenido por el candidato A y *shareA* el porcentaje del total de los gastos de campaña atribuidos al candidato A. El modelo de regresión 
+
+$$
+\begin{equation}
+voteA  = \beta_0 + \beta_1 shareA + u
+\label{eq:vote01}
+\tag{10}
+\end{equation}
+$$
+
+Es estimado en el siguiente script:
+
+```{r}
+library(foreign)
+
+vote1 <- read.dta("data/vote1.dta")
+
+# regresión MCO
+(VOTEres <- lm(vote1$voteA ~ vote1$shareA) )
+
+# grafico de dispersión con línea de regresión
+plot(vote1$shareA, vote1$voteA)
+abline(VOTEres)
+```
+
+La regresión de MCO resultó ser:
+
+$$
+\begin{equation}
+\hat(voteA)  = 26.81 + 0.464 shareA 
+\label{eq:vote02}
+\tag{11}
+\end{equation}
+$$
+
+## Propiedades de MCO en cualquier muestra de datos
+### Coeficientes, valores ajustados y residuales
+
+En esta sección se verán otras propiedades algenraicas de  la línea de regresión ajustada de MCO. Varias de la propiedades pueden parecer muy simples. Sin embargo, entenderlas ayudará a comprender lo que pasa con las estimaciones de MCO y con los los estadísticos con ellos relacionados al manipular los datos de ciertas maneras (por ejemplo cambiando las unidades de medida de variables dependientes e independientes).
+
+Se supone que las estimaciones del intercepto y la pendiente,  $\hat{\beta_0}$ y $\hat{\beta_1}$, han sido obtenidas para los datos muestreales dados. Una vez que se tienen $\hat{\beta_0}$ y $\hat{\beta_1}$, se puede obtener el valor ajustado $\hat{y_i}$ correspondiente a cada observación ($\eqref{eq:ols}$). Por definición todos los valores ajustados $\hat{y_i}$       
