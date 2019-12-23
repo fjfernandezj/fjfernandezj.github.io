@@ -1,9 +1,9 @@
 ---
-title: "WooldRige"
-author: "Francisco Fernández"
-date: "06-11-2019"
-output: html_document
+layout: post
+title: Introducción a la econometría WooldRige
+tags: [econometrics, R]
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
