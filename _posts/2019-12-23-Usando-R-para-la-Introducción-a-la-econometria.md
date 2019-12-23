@@ -89,7 +89,7 @@ salary  = \beta_0 + \beta_1 roe + u
 \end{equation}
 $$
 En el siguiente script se calculan los 4 estadisticos que se necesitan para las ecuaciones $\eqref{eq:beta0}$ y $\eqref{eq:beta1}$ de manera que se puedan calcular manualmente las formulas de OLS
-~~~
+```javascript
 library(foreign)
 
 ceosal1 <- read.dta("data/ceosal1.dta")
@@ -110,7 +110,7 @@ mean(ceosal1$roe)
 
 # Calculo automático a través de comando lm (linear model)
 lm(ceosal1$salary ~ ceosal1$roe)
-~~~
+```
 
 De esta manera la linea de regresión MCO (luego del calculo del intercepto y la pendiente) que relaciona sueldo (salary) y rendimiento sobre capital (roe)
 
@@ -126,7 +126,7 @@ Primero, si el rendimiento sobre el capital es 0, $roe = 0$, entonces el sueldo 
 
 En el siguiente script se puede ver como guardar los resultados de la regresión en una variable CEOregress y luego usarla como un argumento para el comando **abline** para agregar una linea de regresion a un gráfico de puntos 
 
-~~~
+```javascript
 #Regresion de MCO
 CEOregres <- lm(ceosal1$salary ~ ceosal1$roe)
 
@@ -135,7 +135,7 @@ plot(ceosal1$roe, ceosal1$salary, ylim = c(0,4000))
 
 # Agregar linea de regresión
 abline(CEOregres)
-~~~
+```
 
 ## Ejemplo 2.4 Salario y Educación
 Para la población de personas en la fuerza de trabajoen 1976, sea $y = wage (salario)$, donde $wage$ se mide en dólares por hora. Entonces, si para una determinada persona $wage = 6.75$, significa que su salario por hora es 6.75 dolares. Sea $x = educ$ años de educación; por ejemplo, $educ = 12$ corresponde a haber terminado el bachillerato. Como el salario promedio de la muestra es 5,90 dolares, el índice de precios al consumidor indica que esta cantidad es equivalente a 19,06 dolares de 2003.
@@ -150,7 +150,7 @@ wage  = \beta_0 + \beta_1 education + u
 $$
 En el siguiente script analizaremos los datos:
 
-~~~
+```javascript
 library(foreign)
 
 wage1 <- read.dta("data/wage1.dta")
@@ -158,7 +158,7 @@ wage1 <- read.dta("data/wage1.dta")
 # regresión MCO
 lm(wage1$wage ~ wage1$educ)
 
-~~~
+```
 
 Se obtiene la siguiente linea de refresión de MCO (o función de regresion muestral) ($n = 526$):
 
@@ -188,7 +188,7 @@ $$
 
 Es estimado en el siguiente script:
 
-~~~
+```javascript
 library(foreign)
 
 vote1 <- read.dta("data/vote1.dta")
@@ -199,7 +199,7 @@ vote1 <- read.dta("data/vote1.dta")
 # grafico de dispersión con línea de regresión
 plot(vote1$shareA, vote1$voteA)
 abline(VOTEres)
-~~~
+```
 
 La regresión de MCO resultó ser:
 
