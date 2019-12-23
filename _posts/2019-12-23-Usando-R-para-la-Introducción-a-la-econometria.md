@@ -3,16 +3,10 @@ layout: post
 title: Introducción a la Econometría con WooldRige
 subtitle: Primer post
 gh-repo: daattali/beautiful-jekyll
-gh-badge:
-  - star
-  - fork
-  - follow
+gh-badge: [star, fork, follow]
 tags: [econometrics, R]
-  - test
 comments: true
-published: true
 ---
-
 # Distribuciones de Probabilidad
 
 ## Funcion de Distribucion acumulada (CDF)
@@ -21,36 +15,37 @@ published: true
 ### Ejemplo B.6 Probabilidades para una variable aleatoria Normal
 Asumimos que X posee una distribución normal $X \sim Normal(4,9)$ y queremos calcular $P(2 < X \le 6 )$. Podemos reescribir el problema para que se establezca en términos de una distribución normal estándar como lo muestra Wooldrige (2016): $P(2 < X \le 6 ) = \Phi(2/3) - \Phi(-2/3)$ (se ve a través de Tabla G.1 - Apendice G pag 831). También podemos ahorrarnos la transformación y trabajar directamente con la distribución normal no estándar. Tenga cuidado de que el tercer argumento en el comando de R para la distribución normal no sea la varianza $\sigma^2 = 9$ sino la desviación estándar $\sigma = 3$. 
 
-```{r}
+
+~~~
 #Utilizando la transformación
 pnorm(2/3) - pnorm(-2/3)
 
 # Trabajando directamente con la distribucion de x
 pnorm(6,4,3) - pnorm(2,4,3)
-```
+~~~
 
 En este caso se obtiene un resultado levemente diferente a lo que presenta Wooldrige (.498) ya que estamos trabajando con los 2/3 exactos en vez de los .67 redondeados que utiliza el texto. El mismo enfoque puede ser utilizado para el siguiente problema
 
-```{r}
+~~~
 1 - pnorm(2,4,3) + pnorm(-2,4,3)
-```
+~~~
 El gráfico de la función de distribución acumulada (cdf) es una función de paso para distribuciones discretas y, por lo tanto, se puede crear mejor usando la opción type = "s" de plot
-```{r}
+~~~
 x <- seq(-1,10)
 Fx <- pbinom(x,10,0.2)
 plot(x,Fx, type = "s")
-```
+~~~
 
 El cdf de una distribución continua se puede trazar muy bien con el comando de curva. El cdf en forma de S de la distribución normal se muestra a continuación.
 
-```{r}
+~~~
 curve(pnorm(x), -4, 4)
-```
+~~~
 
 ### Ejemplo C.2 Efectos de los subsidios para la capacitación laboral en la productividad de los trabajadores
 En este ejemplo analizamos las "tasas de desperdicios" de empresas que recibieron subsidios para la capacitación laboral en 1988. Las tasas de desperdicios para 1987 y 1988 se presentan en la tabla C3 del libro de Wooldrige y a continuación las agregaremos en forma manual. Aca estamos interesados en en el cambio ocurrido entre años. El calculo del promedio como del intervalo de confianza.
 
-```{r}
+~~~
 # Introducción de datos manuales
 sr87 <- c(10,1,6,.45,1.25,1.3,1.06,3,8.18,1.67,.98,1,.45,5.03,8,9,18,.28,7,3.97)
 
@@ -76,12 +71,12 @@ c(avgCh - c*se, avgCh + c*se)
 # Calculo automático de intervalo de confianza
 t.test(Change)
   
-```
+~~~
 
 ### Ejemplo C.3 Discriminación Racial en las Contrataciones
 Analizaremos la discriminación racial utilizando la base de dato AUDIT.dta. La variable $y$ representa la diferencia en tasas de contratación entre aplicantes blancos y negros con CVs idénticos. Antes de calcular el promedio, el tamaño de la muestra, la desviación estandard y el error estandard del promedio de la muestra. El siguiente Script calcula el valor para el factor c como el percentil 97.5 de la distribución normal estandard la cual es (muy cercana) 1.97. Finalmente, el intervalo de confianza 95 y 99 es reportado.
 
-```{r}
+~~~
 library(foreign)
 
 audit <- read.dta("data/audit.dta")
@@ -103,7 +98,7 @@ avgy + c * c(-se, + se)
 #Intervalo de confianza 99%
 avgy + qnorm(0.995) * c(-se, + se)
 
-```
+~~~
 
 # Análisis de Regresión con datos de corte transversal Simple
 
@@ -186,8 +181,7 @@ salary  = \beta_0 + \beta_1 roe + u
 \end{equation}
 $$
 En el siguiente script se calculan los 4 estadisticos que se necesitan para las ecuaciones $\eqref{eq:beta0}$ y $\eqref{eq:beta1}$ de manera que se puedan calcular manualmente las formulas de OLS
-
-```{r}
+~~~
 library(foreign)
 
 ceosal1 <- read.dta("data/ceosal1.dta")
@@ -208,7 +202,7 @@ mean(ceosal1$roe)
 
 # Calculo automático a través de comando lm (linear model)
 lm(ceosal1$salary ~ ceosal1$roe)
-```
+~~~
 
 De esta manera la linea de regresión MCO (luego del calculo del intercepto y la pendiente) que relaciona sueldo (salary) y rendimiento sobre capital (roe)
 
@@ -224,7 +218,7 @@ Primero, si el rendimiento sobre el capital es 0, $roe = 0$, entonces el sueldo 
 
 En el siguiente script se puede ver como guardar los resultados de la regresión en una variable CEOregress y luego usarla como un argumento para el comando **abline** para agregar una linea de regresion a un gráfico de puntos 
 
-```{r}
+~~~
 #Regresion de MCO
 CEOregres <- lm(ceosal1$salary ~ ceosal1$roe)
 
@@ -233,7 +227,7 @@ plot(ceosal1$roe, ceosal1$salary, ylim = c(0,4000))
 
 # Agregar linea de regresión
 abline(CEOregres)
-```
+~~~
 
 ## Ejemplo 2.4 Salario y Educación
 Para la población de personas en la fuerza de trabajoen 1976, sea $y = wage (salario)$, donde $wage$ se mide en dólares por hora. Entonces, si para una determinada persona $wage = 6.75$, significa que su salario por hora es 6.75 dolares. Sea $x = educ$ años de educación; por ejemplo, $educ = 12$ corresponde a haber terminado el bachillerato. Como el salario promedio de la muestra es 5,90 dolares, el índice de precios al consumidor indica que esta cantidad es equivalente a 19,06 dolares de 2003.
@@ -248,7 +242,7 @@ wage  = \beta_0 + \beta_1 education + u
 $$
 En el siguiente script analizaremos los datos:
 
-```{r}
+~~~
 library(foreign)
 
 wage1 <- read.dta("data/wage1.dta")
@@ -256,7 +250,7 @@ wage1 <- read.dta("data/wage1.dta")
 # regresión MCO
 lm(wage1$wage ~ wage1$educ)
 
-```
+~~~
 
 Se obtiene la siguiente linea de refresión de MCO (o función de regresion muestral) ($n = 526$):
 
@@ -286,7 +280,7 @@ $$
 
 Es estimado en el siguiente script:
 
-```{r}
+~~~
 library(foreign)
 
 vote1 <- read.dta("data/vote1.dta")
@@ -297,7 +291,7 @@ vote1 <- read.dta("data/vote1.dta")
 # grafico de dispersión con línea de regresión
 plot(vote1$shareA, vote1$voteA)
 abline(VOTEres)
-```
+~~~
 
 La regresión de MCO resultó ser:
 
