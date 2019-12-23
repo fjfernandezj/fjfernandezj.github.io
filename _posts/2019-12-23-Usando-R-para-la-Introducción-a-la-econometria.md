@@ -7,98 +7,6 @@ gh-badge: [star, fork, follow]
 tags: [econometrics, R]
 comments: true
 ---
-# Distribuciones de Probabilidad
-
-## Funcion de Distribucion acumulada (CDF)
-
-
-### Ejemplo B.6 Probabilidades para una variable aleatoria Normal
-Asumimos que X posee una distribución normal $X \sim Normal(4,9)$ y queremos calcular $P(2 < X \le 6 )$. Podemos reescribir el problema para que se establezca en términos de una distribución normal estándar como lo muestra Wooldrige (2016): $P(2 < X \le 6 ) = \Phi(2/3) - \Phi(-2/3)$ (se ve a través de Tabla G.1 - Apendice G pag 831). También podemos ahorrarnos la transformación y trabajar directamente con la distribución normal no estándar. Tenga cuidado de que el tercer argumento en el comando de R para la distribución normal no sea la varianza $\sigma^2 = 9$ sino la desviación estándar $\sigma = 3$. 
-
-
-~~~
-#Utilizando la transformación
-pnorm(2/3) - pnorm(-2/3)
-
-# Trabajando directamente con la distribucion de x
-pnorm(6,4,3) - pnorm(2,4,3)
-~~~
-
-En este caso se obtiene un resultado levemente diferente a lo que presenta Wooldrige (.498) ya que estamos trabajando con los 2/3 exactos en vez de los .67 redondeados que utiliza el texto. El mismo enfoque puede ser utilizado para el siguiente problema
-
-~~~
-1 - pnorm(2,4,3) + pnorm(-2,4,3)
-~~~
-El gráfico de la función de distribución acumulada (cdf) es una función de paso para distribuciones discretas y, por lo tanto, se puede crear mejor usando la opción type = "s" de plot
-~~~
-x <- seq(-1,10)
-Fx <- pbinom(x,10,0.2)
-plot(x,Fx, type = "s")
-~~~
-
-El cdf de una distribución continua se puede trazar muy bien con el comando de curva. El cdf en forma de S de la distribución normal se muestra a continuación.
-
-~~~
-curve(pnorm(x), -4, 4)
-~~~
-
-### Ejemplo C.2 Efectos de los subsidios para la capacitación laboral en la productividad de los trabajadores
-En este ejemplo analizamos las "tasas de desperdicios" de empresas que recibieron subsidios para la capacitación laboral en 1988. Las tasas de desperdicios para 1987 y 1988 se presentan en la tabla C3 del libro de Wooldrige y a continuación las agregaremos en forma manual. Aca estamos interesados en en el cambio ocurrido entre años. El calculo del promedio como del intervalo de confianza.
-
-~~~
-# Introducción de datos manuales
-sr87 <- c(10,1,6,.45,1.25,1.3,1.06,3,8.18,1.67,.98,1,.45,5.03,8,9,18,.28,7,3.97)
-
-sr88 <- c(3,1,5,.5,1.54,1.5,.8,2,.67,1.17,.51,.5,.61,6.7,4,7,19,.2,5,3.83)
-
-# Calculo de Cambio
-(Change <- sr88 - sr87)
-
-# Ingredientes para la formula de intervalo de confianza (CI)
-(avgCh <- mean(Change))
-
-(n <- length(Change))
-
-(sdCh <- sd(Change))
-
-(se <- sdCh/sqrt(n)) #error standard 
-
-(c <- qt(.975, n-1))
-
-# Intervalo de Confianza
-c(avgCh - c*se, avgCh + c*se)
-
-# Calculo automático de intervalo de confianza
-t.test(Change)
-  
-~~~
-
-### Ejemplo C.3 Discriminación Racial en las Contrataciones
-Analizaremos la discriminación racial utilizando la base de dato AUDIT.dta. La variable $y$ representa la diferencia en tasas de contratación entre aplicantes blancos y negros con CVs idénticos. Antes de calcular el promedio, el tamaño de la muestra, la desviación estandard y el error estandard del promedio de la muestra. El siguiente Script calcula el valor para el factor c como el percentil 97.5 de la distribución normal estandard la cual es (muy cercana) 1.97. Finalmente, el intervalo de confianza 95 y 99 es reportado.
-
-~~~
-library(foreign)
-
-audit <- read.dta("data/audit.dta")
-
-#Ingredientes para la formula de IC
-(avgy <- mean(audit$y))
-
-(n <- length(audit$y))
-
-(sdy <- sd(audit$y))
-
-(se <- sdy/sqrt(n))
-
-(c <- qnorm(0.975))
-
-#Intervalo de confianza 95%
-avgy + c * c(-se, + se)
-
-#Intervalo de confianza 99%
-avgy + qnorm(0.995) * c(-se, + se)
-
-~~~
 
 # Análisis de Regresión con datos de corte transversal Simple
 
@@ -107,9 +15,9 @@ avgy + qnorm(0.995) * c(-se, + se)
 ### Ideas claves
 * El modelo de regresión simple puede utilizarse para estudiar la relación entre dos variables
 
-* Se parte de la premisa que $y$ y $x$ son dos variables que representan a una población se desea "explicar $y$ en términos de $X$"
+* Se parte de la premisa que **_y_** y **_x_** son dos variables que representan a una población se desea "explicar **_y_** en términos de **_X_**"
 
-- Un modelo que "explique $y$ en términos de $x$" se establece a través de la ecuación $\eqref{eq:lm}$ :
+- Un modelo que "explique **_y_** en términos de **_x_**" se establece a través de la ecuación $\eqref{eq:lm}$ :
 $$
 \begin{equation}
 y = \beta_0 + \beta_1x + u
