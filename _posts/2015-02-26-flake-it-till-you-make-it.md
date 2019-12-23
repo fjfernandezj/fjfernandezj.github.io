@@ -6,6 +6,9 @@ bigimg: /img/path.jpg
 tags: [policy, data]
 ---
 
+![FADN](https://www.abbreviations.com/images/1847016_FADN.png){: .center-block :}
+
+
 La Red de Datos de Contabilidad Agrícola (FADN por sus siglas en inglés) es un instrumento utilizado para evaluar los ingresos de las explotaciones agrícolas y también los impactos de la Política Agrícola Común (PAC) de la Comunidad Europea (EU). 
 
 Podemos ir un poco más alla del Censo
