@@ -21,7 +21,7 @@ Análisis ex-ante del impacto de las propuestas de políticas -reformas y otras 
 Análisis ex-post de las medidas relacionadas al sector agropecuario,
 En investigación-múltiples usos relacionados con la economía de las explotaciones agrícolas (productividad, competitividad, medio ambiente, bienes públicos, efectos de las políticas).
 
-https://review.chicagobooth.edu/economics/2019/article/purely-evidence-based-policy-doesn-t-exist
+Sólo levantar información no es suficiente, se debe también ver como utilizar esa información. Los invito a visitar esta [página](https://review.chicagobooth.edu/economics/2019/article/purely-evidence-based-policy-doesn-t-exist) para saber de lo que hablo. 
 
 Under what circumstances should we step off a path? When is it essential that we finish what we start? If I bought a bag of peanuts and had an allergic reaction, no one would fault me if I threw it out. If I ended a relationship with a woman who hit me, no one would say that I had a commitment problem. But if I walk away from a seemingly secure route because my soul has other ideas, I am a flake?
 
