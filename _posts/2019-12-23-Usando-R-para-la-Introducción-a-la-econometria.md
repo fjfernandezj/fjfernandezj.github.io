@@ -17,7 +17,10 @@ comments: true
 
 * Se parte de la premisa que **_y_** y **_x_** son dos variables que representan a una población se desea "explicar **_y_** en términos de **_X_**"
 
-- Un modelo que "explique **_y_** en términos de **_x_**" se establece a través de la ecuación $\eqref{eq:lm}$ :
+- Un modelo que "explique **_y_** en términos de **_x_**" se establece a través de la ecuación:
+
+
+$y = \beta_0 + \beta_1x + u$
 
 \$$
 \begin{equation}
