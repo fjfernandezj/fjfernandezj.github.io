@@ -25,7 +25,8 @@ mathjax: true
 
 $$
 \begin{equation}
- & y = \beta_0 + \beta_1x + u
+  y = \beta_0 + \beta_1x + u
+\tag{1}
 \end{equation}
 $$
 
