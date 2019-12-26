@@ -20,14 +20,10 @@ comments: true
 - Un modelo que "explique **_y_** en términos de **_x_**" se establece a través de la ecuación:
 
 
-$y = \beta_0 + \beta_1x + u$
-
-\$$
-\begin{equation}
-y = \beta_0 + \beta_1x + u
-\label{eq:lm}
-\tag{1}
-\end{equation}
+$$
+\begin{align*}
+  & y = \beta_0 + \beta_1x + u
+\end{align*}
 $$
 
 * La ecuación $\eqref{eq:lm}$ define el modelo de regresión lineal simple.
