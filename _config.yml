@@ -41,7 +41,7 @@ avatar: "/img/bio_photo.jpg"
 
 # If you want to have an image logo in the top-left corner instead of the title text,
 # then specify the following parameter
-# title-img: C:/Users/franj/OneDrive/Escritorio/bio-photo.jpg 
+title-img: "/img/bio_photo.jpg"
 
 # --- Background colour/image options --- #
 
