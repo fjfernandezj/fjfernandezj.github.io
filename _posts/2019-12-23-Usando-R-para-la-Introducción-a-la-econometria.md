@@ -38,7 +38,7 @@ $$
 
 $$
 \begin{equation}
-\Delta y = \beta_1 \Delta x  si  \Delta u = 0
+\Delta y = \beta_1 \Delta x \\ si \\ \Delta u = 0
 \label{eq:Du}
 \tag{2}
 \end{equation}
@@ -82,7 +82,7 @@ Para una muestra dada, solo necesitamos calcular los cuatro estadisticos $$ \hat
 A continuación veremos 3 ejemplos de regresión simple empleando datos reales. Hay que tener ojo de que estas no necesariamente implican una relación causal. Para esto luego veremos las propiedades estadísticas de los estimadores de MCO. 
 
 ### Ejemplo 2.3 Sueldo de los Directores Generales (CEO) y rendimiento sobre el capital
-En la población de los directores generales, sea $y$ el sueldo (salary) en miles de dolares. De manera que $y = 856.3$ corresponde a un suelo anual de 856,300 y $y = 1,452.6$ corresponde a un sueldo de 1,452,600. Sea $x$ el promedio, en los últimos tres años, del rendimiento sobre el capital (roe) en las empresas de los CEO. (El rendimiento sobre el capital se define en términos de utilidad neta como porcentaje de acciones comunes.) Por ejemplo, si $roe = 10$, el rendimiento promedio sobre el capital es 10 por ciento. 
+En la población de los directores generales, sea $$ y $$ el sueldo (salary) en miles de dolares. De manera que $$ y = 856.3 $$ corresponde a un suelo anual de 856,300 y $$ y = 1,452.6 $$ corresponde a un sueldo de 1,452,600. Sea $$ x $$ el promedio, en los últimos tres años, del rendimiento sobre el capital (roe) en las empresas de los CEO. (El rendimiento sobre el capital se define en términos de utilidad neta como porcentaje de acciones comunes.) Por ejemplo, si $$ roe = 10$ $, el rendimiento promedio sobre el capital es 10 por ciento. 
 
 Para analizar esto se utiliza la base de datos CEOSAL1.dta, la cual contiene información correspondiente al año 1990, sobre 209 CEO; estos datos fueron obtenidos de *Business Week* (5/6/91). En esta muestra, el sueldo anual promedio es 1,281,120, y los sueldos menor y mayorson 223,000 y 14,822,000, respectivamente. La media del rendimiento sobre capital en 1988, 1989 y 1990 es 17.18% y los valores menor y mayor son 0,5 y 56.3%, respectivamente. 
 
@@ -95,7 +95,8 @@ salary  = \beta_0 + \beta_1 roe + u
 \tag{6}
 \end{equation}
 $$
-En el siguiente script se calculan los 4 estadisticos que se necesitan para las ecuaciones $\eqref{eq:beta0}$ y $\eqref{eq:beta1}$ de manera que se puedan calcular manualmente las formulas de OLS
+
+En el siguiente script se calculan los 4 estadisticos que se necesitan para las ecuaciones $$ \eqref{eq:beta0} $$ y $$ \eqref{eq:beta1} $$ de manera que se puedan calcular manualmente las formulas de OLS
 
 ```javascript
 library(foreign)
@@ -129,8 +130,9 @@ $$
 \tag{7}
 \end{equation}
 $$
-¿Cómo se interpreta esta ecuación?
-Primero, si el rendimiento sobre el capital es 0, $roe = 0$, entonces el sueldo que se predice corresponde al intercepto, 963.191, es decir, 963,191, dado que salary se mide en miles. Luego, el cambio que se predice para el sueldo en función del cambio en el roe se exresa como $\Delta\hat{salary}=18,501$ ($\Delta roe$). Esto significa que cuando el rendimiento sobre el capital aumente en un punto porcentual, $\Delta roe = 1$, se predice que el sueldo variará aproximadamente en 18.5, es decir, 18,500. 
+
+####¿Cómo se interpreta esta ecuación?
+Primero, si el rendimiento sobre el capital es 0, $$ roe = 0 $$, entonces el sueldo que se predice corresponde al intercepto, 963.191, es decir, 963,191, dado que salary se mide en miles. Luego, el cambio que se predice para el sueldo en función del cambio en el roe se exresa como $$ \Delta\hat{salary}=18,501 $$ ($$ \Delta roe $$). Esto significa que cuando el rendimiento sobre el capital aumente en un punto porcentual, $$ \Delta roe = 1 $$, se predice que el sueldo variará aproximadamente en 18.5, es decir, 18,500. 
 
 En el siguiente script se puede ver como guardar los resultados de la regresión en una variable CEOregress y luego usarla como un argumento para el comando **abline** para agregar una linea de regresion a un gráfico de puntos 
 
@@ -146,9 +148,10 @@ abline(CEOregres)
 ```
 
 ## Ejemplo 2.4 Salario y Educación
-Para la población de personas en la fuerza de trabajoen 1976, sea $y = wage (salario)$, donde $wage$ se mide en dólares por hora. Entonces, si para una determinada persona $wage = 6.75$, significa que su salario por hora es 6.75 dolares. Sea $x = educ$ años de educación; por ejemplo, $educ = 12$ corresponde a haber terminado el bachillerato. Como el salario promedio de la muestra es 5,90 dolares, el índice de precios al consumidor indica que esta cantidad es equivalente a 19,06 dolares de 2003.
+Para la población de personas en la fuerza de trabajoen 1976, sea $$ y = wage (salario) $$, donde $$ wage $$ se mide en dólares por hora. Entonces, si para una determinada persona $$ wage = 6.75 $$, significa que su salario por hora es 6.75 dolares. Sea $$ x = educ $$ años de educación; por ejemplo, $$ educ = 12 $$ corresponde a haber terminado el bachillerato. Como el salario promedio de la muestra es 5,90 dolares, el índice de precios al consumidor indica que esta cantidad es equivalente a 19,06 dolares de 2003.
 
 Utilizando la base de datos *WAGE1.dta*. estudiaremos la relacion entre educación y salario, siendo nuestro modelo de regresión: 
+
 $$
 \begin{equation}
 wage  = \beta_0 + \beta_1 education + u
@@ -156,6 +159,7 @@ wage  = \beta_0 + \beta_1 education + u
 \tag{8}
 \end{equation}
 $$
+
 En el siguiente script analizaremos los datos:
 
 ```javascript
@@ -168,7 +172,7 @@ lm(wage1$wage ~ wage1$educ)
 
 ```
 
-Se obtiene la siguiente linea de refresión de MCO (o función de regresion muestral) ($n = 526$):
+Se obtiene la siguiente linea de refresión de MCO (o función de regresion muestral) ($$ n = 526 $$):
 
 $$
 \begin{equation}
@@ -177,6 +181,7 @@ $$
 \tag{9}
 \end{equation}
 $$
+
 El intercepto -0.90 significa literalmente que para una persona sin ninguna educación el sueldo por hora que se predice es -90 centavos por hora (lo cual no tiene sentido). Por eso ojo con la interpretación de este resultado. Esta linea de regresión no es adecuada para niveles de educación muy bajos.
 
 Por otro lado la pendiente estimada de la ecuación $\eqref{eq:wage02}$ implica que un año adicional de educación hace que el salario por hora aumente 54 centavos por hora.
@@ -224,4 +229,4 @@ $$
 
 En esta sección se verán otras propiedades algenraicas de  la línea de regresión ajustada de MCO. Varias de la propiedades pueden parecer muy simples. Sin embargo, entenderlas ayudará a comprender lo que pasa con las estimaciones de MCO y con los los estadísticos con ellos relacionados al manipular los datos de ciertas maneras (por ejemplo cambiando las unidades de medida de variables dependientes e independientes).
 
-Se supone que las estimaciones del intercepto y la pendiente,  $\hat{\beta_0}$ y $\hat{\beta_1}$, han sido obtenidas para los datos muestreales dados. Una vez que se tienen $\hat{\beta_0}$ y $\hat{\beta_1}$, se puede obtener el valor ajustado $\hat{y_i}$ correspondiente a cada observación ($\eqref{eq:ols}$). Por definición todos los valores ajustados $\hat{y_i}$       
+Se supone que las estimaciones del intercepto y la pendiente,  $$ \hat{\beta_0} $$ y $$ \hat{\beta_1} $$, han sido obtenidas para los datos muestreales dados. Una vez que se tienen $$ \hat{\beta_0} $$ y $$ \hat{\beta_1} $$, se puede obtener el valor ajustado $$ \hat{y_i} $$ correspondiente a cada observación ($$ \eqref{eq:ols} $$). Por definición todos los valores ajustados $$ \hat{y_i} $$       
