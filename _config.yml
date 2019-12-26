@@ -24,14 +24,14 @@ navbar-links:
   Projectos:
     - Musels: "http://www.eula.cl/musels/"
     - CAPES: "http://www.capes.cl/"
-  Publicaciones recientes: 
+  Publicaciones: 
     - REC-2019: "https://link.springer.com/article/10.1007/s10113-018-1380-0"
     - OCMA-2018: "https://www.sciencedirect.com/science/article/abs/pii/S0964569116304264"
     - AgrSys-2017: "https://www.sciencedirect.com/science/article/pii/S0308521X16301007"
     - REC-2017: "https://link.springer.com/article/10.1007/s10113-017-1152-2"
     - WARM-2016: "https://link.springer.com/article/10.1007/s11269-016-1227-8"
     - Economics-2015: "http://www.economics-ejournal.org/economics/journalarticles/2015-10"
-  Curriculum: 
+  CV: 
     - Español: "https://docs.google.com/gview?url=https://github.com/fjfernandezj/curriculum_esp/raw/master/CV_FranciscoFernandez_espa%C3%B1ol_actualizado.pdf&embedded=true"
     - Inglés:  "https://docs.google.com/gview?url=https://github.com/fjfernandezj/curriculum_esp/raw/master/CV_FranciscoFernandez_ingl%C3%A9s_actualizado.pdf&embedded=true"
 
