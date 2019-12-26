@@ -8,6 +8,9 @@ tags: [econometrics, R]
 comments: true
 mathjax: true
 ---
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 # Análisis de Regresión con datos de corte transversal Simple
 
