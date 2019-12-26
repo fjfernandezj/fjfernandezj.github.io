@@ -30,11 +30,11 @@ $$
 \end{equation}
 $$
 
-* La ecuación anterior define el modelo de regresión lineal simple.
+* La ecuación 1 define el modelo de regresión lineal simple.
 
 * La variable $$ u $$, llamada **término de error**, o **perturbación** en la relación, representa factores distintos a $$ x $$ que afectan a $$ y $$.  
 
-* La ecuación anterior también resuelve le problema de la relación funcional entre $$ y $$ y $$ x $$. Si los demás factores en $$ u $$ permanecen constantes,de manera que el cambio en $$ u$ $ sea cero, $$ \Delta u = 0 $$, entonces $$ x $$ tiene un efecto lineal sobre $$ y $$:
+* La ecuación 1 también resuelve le problema de la relación funcional entre $$ y $$ y $$ x $$. Si los demás factores en $$ u $$ permanecen constantes,de manera que el cambio en $$ u $$ sea cero, $$ \Delta u = 0 $$, entonces $$ x $$ tiene un efecto lineal sobre $$ y $$:
 
 $$
 \begin{equation}
@@ -46,10 +46,10 @@ $$
 
 * Por tanto, el cambio en $$ y $$ es simplemente $$ \beta_1 $$ multiplicado por el cambio en $$ x $$. Esto significa $$ \beta_1 $$ es el **parámetro de la pendiente** en la relación entre $$ y $$ y $$ x $$, cuando todos los demás factores en $$ u $$ permanecen constantes.
 
-* La linealidad de la ecuación que define al modelo de regresión lineal simple implica que todo cambio de $$ x $$ en una unidad tiene siempre el mismo efecto sobre $$ y $$, sin importar el valor inicial de $$ x $$.
+* La linealidad de la ecuación 1 implica que todo cambio de $$ x $$ en una unidad tiene siempre el mismo efecto sobre $$ y $$, sin importar el valor inicial de $$ x $$.
 
 ## Obtención de las estimaciones de mínimos ordinarios
-* Para estimar los parámetros $$ \beta_0 $$ y $$ \beta_1 $$ de la ecuación del modelo de regresión lineal simple, se necesita tomar una muestra de la población. Sea $$ {(x_i,y_i):i=1,...,n} $$ una muestra aleatoria de tamaño $$ n $$ tomada de la población. De esta muestra aleatoria de $$ y $$ y $$ x $$, de acuerdo a Wooldrige (2016, sección 2.2), las estimaciones de mínimos cuadrados ordinarios (OLS) son:
+* Para estimar los parámetros $$ \beta_0 $$ y $$ \beta_1 $$ de la ecuación 1, se necesita tomar una muestra de la población. Sea $$ {(x_i,y_i):i=1,...,n} $$ una muestra aleatoria de tamaño $$ n $$ tomada de la población. De esta muestra aleatoria de $$ y $$ y $$ x $$, de acuerdo a Wooldrige (2016, sección 2.2), las estimaciones de mínimos cuadrados ordinarios (OLS) son:
 
 $$
 \begin{equation}
