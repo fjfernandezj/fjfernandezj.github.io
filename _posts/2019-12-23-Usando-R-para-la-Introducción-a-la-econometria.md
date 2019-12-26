@@ -77,9 +77,9 @@ $$
 \end{equation}
 $$
 
-Para una muestra dada, solo necesitamos calcular los cuatro estadisticos $\hat{y}$, $\hat{x}$, $Cov(x,y)$, y $Var(x)$ e insertarlas en las ecuaciones anteriores. 
+Para una muestra dada, solo necesitamos calcular los cuatro estadisticos $$ \hat{y} $$, $$ \hat{x} $$, $$ Cov(x,y) $$, y $$ Var(x) $$ e insertarlas en las ecuaciones anteriores. 
 
-A continuación veremos 3 ejemplos de regresión simple obtenidos empleando datos reales. Hay que tener ojo de que estas no necesariamente implican una relación causal. Para esto luego veremos las propiedades estadísticas de los estimadores de MCO. 
+A continuación veremos 3 ejemplos de regresión simple empleando datos reales. Hay que tener ojo de que estas no necesariamente implican una relación causal. Para esto luego veremos las propiedades estadísticas de los estimadores de MCO. 
 
 ### Ejemplo 2.3 Sueldo de los Directores Generales (CEO) y rendimiento sobre el capital
 En la población de los directores generales, sea $y$ el sueldo (salary) en miles de dolares. De manera que $y = 856.3$ corresponde a un suelo anual de 856,300 y $y = 1,452.6$ corresponde a un sueldo de 1,452,600. Sea $x$ el promedio, en los últimos tres años, del rendimiento sobre el capital (roe) en las empresas de los CEO. (El rendimiento sobre el capital se define en términos de utilidad neta como porcentaje de acciones comunes.) Por ejemplo, si $roe = 10$, el rendimiento promedio sobre el capital es 10 por ciento. 
@@ -96,6 +96,7 @@ salary  = \beta_0 + \beta_1 roe + u
 \end{equation}
 $$
 En el siguiente script se calculan los 4 estadisticos que se necesitan para las ecuaciones $\eqref{eq:beta0}$ y $\eqref{eq:beta1}$ de manera que se puedan calcular manualmente las formulas de OLS
+
 ```javascript
 library(foreign)
 
