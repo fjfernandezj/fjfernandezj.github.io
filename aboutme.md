@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Información sobre mi
+title: Acerca de
 ---
 
 Mi nombre es Francisco Fernández, Soy profesor de Economía Aplicada Sectorial y Métodos Estadísticos de la [Escuela de Agronomía de la Universidad Mayor](https://www.umayor.cl/um/carreras/agronomia-santiago/10000). Mi intención es utilizar este blog para mantener contacto con mis estudiantes actuales y antiguos. Así mismo, generar un espacio para compartir ideas, información y datos relacionados a la Economía Agraria y de los Recursos Naturales con profesores y estudiantes de otras escuelas, así como otros interesados en estos temas. 
