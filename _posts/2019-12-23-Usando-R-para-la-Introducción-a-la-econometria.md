@@ -101,7 +101,7 @@ En el siguiente script se calculan los 4 estadisticos que se necesitan para las 
 ```javascript
 library(foreign)
 
-ceosal1 <- read.dta("https://ideas.repec.org/p/boc/bocins/ceosal1.html")
+ceosal1 <- read.dta("http://fmwww.bc.edu/ec-p/data/wooldridge/ceosal1.dta")
 
 #Ingredientes para las formulas de OLS
 cov(ceosal1$roe, ceosal1$salary)
