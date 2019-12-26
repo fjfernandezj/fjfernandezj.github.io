@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Introducción a la Econometría con WooldRige
-subtitle: Primer post
+title: Modelo de regresión simple
+subtitle: siguiendo los pasos de Heiss (2016) y Wooldrige (2016) 
 gh-repo: daattali/beautiful-jekyll
 gh-badge: [star, fork, follow]
 tags: [econometrics, R]
