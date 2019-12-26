@@ -38,7 +38,7 @@ $$
 
 $$
 \begin{equation}
-\Delta y = \beta_1 \Delta x \\ si \\ \Delta u = 0
+\Delta y = \beta_1 \Delta x \ si \ \Delta u = 0
 \label{eq:Du}
 \tag{2}
 \end{equation}
@@ -49,7 +49,7 @@ $$
 * La linealidad de la ecuación 1 implica que todo cambio de $$ x $$ en una unidad tiene siempre el mismo efecto sobre $$ y $$, sin importar el valor inicial de $$ x $$.
 
 ## Obtención de las estimaciones de mínimos ordinarios
-* Para estimar los parámetros $$ \beta_0 $$ y $$ \beta_1 $$ de la ecuación 1, se necesita tomar una muestra de la población. Sea $$ {(x_i,y_i):i=1,...,n} $$ una muestra aleatoria de tamaño $$ n $$ tomada de la población. De esta muestra aleatoria de $$ y $$ y $$ x $$, de acuerdo a Wooldrige (2016, sección 2.2), las estimaciones de mínimos cuadrados ordinarios (OLS) son:
+* Para estimar los parámetros $$ \beta_0 $$ y $$ \beta_1 $$ de la ecuación 1, se necesita tomar una muestra de la población. Sea $$ {(x_i,y_i):i=1,...,n} $$ una muestra aleatoria de tamaño $$ n $$ tomada de la población. De esta muestra aleatoria de $$ y $$ y $$ x $$, de acuerdo a Wooldrige (2016, sección 2.2), las estimaciones de mínimos cuadrados ordinarios (MCO) son:
 
 $$
 \begin{equation}
@@ -82,7 +82,7 @@ Para una muestra dada, solo necesitamos calcular los cuatro estadisticos $$ \hat
 A continuación veremos 3 ejemplos de regresión simple empleando datos reales. Hay que tener ojo de que estas no necesariamente implican una relación causal. Para esto luego veremos las propiedades estadísticas de los estimadores de MCO. 
 
 ### Ejemplo 2.3 Sueldo de los Directores Generales (CEO) y rendimiento sobre el capital
-En la población de los directores generales, sea $$ y $$ el sueldo (salary) en miles de dolares. De manera que $$ y = 856.3 $$ corresponde a un suelo anual de 856,300 y $$ y = 1,452.6 $$ corresponde a un sueldo de 1,452,600. Sea $$ x $$ el promedio, en los últimos tres años, del rendimiento sobre el capital (roe) en las empresas de los CEO. (El rendimiento sobre el capital se define en términos de utilidad neta como porcentaje de acciones comunes.) Por ejemplo, si $$ roe = 10$ $, el rendimiento promedio sobre el capital es 10 por ciento. 
+En la población de los directores generales, sea $$ y $$ el sueldo (salary) en miles de dolares. De manera que $$ y = 856.3 $$ corresponde a un suelo anual de 856,300 y $$ y = 1,452.6 $$ corresponde a un sueldo de 1,452,600. Sea $$ x $$ el promedio, en los últimos tres años, del rendimiento sobre el capital (roe) en las empresas de los CEO. (El rendimiento sobre el capital se define en términos de utilidad neta como porcentaje de acciones comunes.) Por ejemplo, si $$ roe = 10 $$, el rendimiento promedio sobre el capital es 10 por ciento. 
 
 Para analizar esto se utiliza la base de datos CEOSAL1.dta, la cual contiene información correspondiente al año 1990, sobre 209 CEO; estos datos fueron obtenidos de *Business Week* (5/6/91). En esta muestra, el sueldo anual promedio es 1,281,120, y los sueldos menor y mayorson 223,000 y 14,822,000, respectivamente. La media del rendimiento sobre capital en 1988, 1989 y 1990 es 17.18% y los valores menor y mayor son 0,5 y 56.3%, respectivamente. 
 
@@ -96,7 +96,7 @@ salary  = \beta_0 + \beta_1 roe + u
 \end{equation}
 $$
 
-En el siguiente script se calculan los 4 estadisticos que se necesitan para las ecuaciones $$ \eqref{eq:beta0} $$ y $$ \eqref{eq:beta1} $$ de manera que se puedan calcular manualmente las formulas de OLS
+En el siguiente script se calculan los 4 estadisticos que se necesitan para las ecuaciones $$ \eqref{eq:beta0} $$ y $$ \eqref{eq:beta1} $$ de manera que se puedan calcular manualmente las formulas de MCO
 
 ```javascript
 library(foreign)
@@ -131,7 +131,7 @@ $$
 \end{equation}
 $$
 
-####¿Cómo se interpreta esta ecuación?
+#### ¿Cómo se interpreta esta ecuación?
 Primero, si el rendimiento sobre el capital es 0, $$ roe = 0 $$, entonces el sueldo que se predice corresponde al intercepto, 963.191, es decir, 963,191, dado que salary se mide en miles. Luego, el cambio que se predice para el sueldo en función del cambio en el roe se exresa como $$ \Delta\hat{salary}=18,501 $$ ($$ \Delta roe $$). Esto significa que cuando el rendimiento sobre el capital aumente en un punto porcentual, $$ \Delta roe = 1 $$, se predice que el sueldo variará aproximadamente en 18.5, es decir, 18,500. 
 
 En el siguiente script se puede ver como guardar los resultados de la regresión en una variable CEOregress y luego usarla como un argumento para el comando **abline** para agregar una linea de regresion a un gráfico de puntos 
@@ -184,7 +184,7 @@ $$
 
 El intercepto -0.90 significa literalmente que para una persona sin ninguna educación el sueldo por hora que se predice es -90 centavos por hora (lo cual no tiene sentido). Por eso ojo con la interpretación de este resultado. Esta linea de regresión no es adecuada para niveles de educación muy bajos.
 
-Por otro lado la pendiente estimada de la ecuación $\eqref{eq:wage02}$ implica que un año adicional de educación hace que el salario por hora aumente 54 centavos por hora.
+Por otro lado la pendiente estimada de la ecuación $$ \eqref{eq:wage02} $$ implica que un año adicional de educación hace que el salario por hora aumente 54 centavos por hora.
 
 ## Ejemplo 2.5 Resultados de una votación y gastos de campaña
 La siguiente base de datos a analizar contiene información en gastos de campaña y los resultados de campañacorrespondientes a 173 contiendas bipartidistas por la càmara de Representantes de Estos Unidos , en 1988.
@@ -229,4 +229,4 @@ $$
 
 En esta sección se verán otras propiedades algenraicas de  la línea de regresión ajustada de MCO. Varias de la propiedades pueden parecer muy simples. Sin embargo, entenderlas ayudará a comprender lo que pasa con las estimaciones de MCO y con los los estadísticos con ellos relacionados al manipular los datos de ciertas maneras (por ejemplo cambiando las unidades de medida de variables dependientes e independientes).
 
-Se supone que las estimaciones del intercepto y la pendiente,  $$ \hat{\beta_0} $$ y $$ \hat{\beta_1} $$, han sido obtenidas para los datos muestreales dados. Una vez que se tienen $$ \hat{\beta_0} $$ y $$ \hat{\beta_1} $$, se puede obtener el valor ajustado $$ \hat{y_i} $$ correspondiente a cada observación ($$ \eqref{eq:ols} $$). Por definición todos los valores ajustados $$ \hat{y_i} $$       
+Se supone que las estimaciones del intercepto y la pendiente,  $$ \hat{\beta_0} $$ y $$ \hat{\beta_1} $$, han sido obtenidas para los datos muestreales dados. Una vez que se tienen $$ \hat{\beta_0} $$ y $$ \hat{\beta_1} $$, se puede obtener el valor ajustado $$ \hat{y_i} $$ correspondiente a cada observación $$ \eqref{eq:ols} $$. Por definición todos los valores ajustados $$ \hat{y_i} $$       
