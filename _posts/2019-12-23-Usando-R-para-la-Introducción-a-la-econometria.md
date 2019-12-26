@@ -19,7 +19,7 @@ comments: true
 
 - Un modelo que "explique $$ y $$ en términos de $$ x $$" se establece a través de la ecuación:
 
-$$
+\$$
 \begin{align*}
   y = \beta_0 + \beta_1x + u
 \end{align*}
