@@ -21,14 +21,14 @@ En esta obra, Ricardo estableció el principio de la ventaja comparativa, recono
 
 Para explicar lo anterior Ricardo utilizó un ejemplo que a estas alturas se podría denominar como un **_clásico_** de los ejemplos utilizados en economía. En este ejemplo, hay dos países (Inglaterra y Portugal) y dos bienes (tela y vino).  Los números de Ricardo se reproducen en la siguiente Tabla, donde cada número, representa el número de trabajadores que se requerirá en ese país para hacer una unidad (como sea que esté definida - kg, litrs, ton, metros de tela, quintales, etc etc etc), del bien en cuestión.
 
-<center>
+
   
 |             | Tela   | Vino   |
 |-------------|:------:|:------:|
 | Inglaterra  |  100   | 120    |
 | Portugal    |   90   |  80    |
 
-</center>
+
 
 Hay varios puntos que se deben destacar de la tabla: 
 
