@@ -4,7 +4,7 @@ title: Ventaja Comparativa
 subtitle: Entendiendo el concepto 
 gh-repo: daattali/beautiful-jekyll
 gh-badge: [star, fork, follow]
-tags: [econometrics, R]
+tags: [economía]
 comments: true
 mathjax: true
 ---
@@ -35,7 +35,4 @@ Si estás leyendo este post, detente por un momento y observa las cosas que tien
 
 
 
-
-### Ideas claves
-* El modelo de regresión simple puede utilizarse para estudiar la relación entre dos variables
 
