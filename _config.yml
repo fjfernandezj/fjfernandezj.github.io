@@ -1,10 +1,10 @@
 # --- General options --- #
 
 # Name of website
-title: Homo Agroeconomicus
+title: Agroeconomicus
 
 # Short description of your site
-description: A virtual proof that I'm awesome
+description: Economía Agraria y todo lo que eso significa
 
 # --- Local development options ---
 # If your website is hosted locally rather than on GitHub, then you need to uncomment the next two parameters to set the url and baseurl
@@ -24,6 +24,8 @@ navbar-links:
   Projectos:
     - Musels: "http://www.eula.cl/musels/"
     - CAPES: "http://www.capes.cl/"
+  Bookdown:
+    - Métodos Estadísticos: "https://fjfernandezj.github.io/GUIA-ME-2020/"
   Publicaciones: 
     - REC-2019: "https://link.springer.com/article/10.1007/s10113-018-1380-0"
     - OCMA-2018: "https://www.sciencedirect.com/science/article/abs/pii/S0964569116304264"
