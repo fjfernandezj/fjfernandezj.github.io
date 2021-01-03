@@ -21,7 +21,7 @@ description: Economía Agraria y todo lo que eso significa
 # List of links in the navigation bar
 navbar-links:
   Acerca de: "aboutme"
-  Projectos:
+  Proyectos:
     - Musels: "http://www.eula.cl/musels/"
     - CAPES: "http://www.capes.cl/"
   Bookdown:
@@ -79,7 +79,7 @@ author:
 # If you want to add a new link that isn't here, you'll need to also edit the file _data/SocialNetworks.yml
 social-network-links:
   rss: true
-  email: "francisco.fernandezj@umayor.cl"
+  email: "francisco.fernandez@umayor.cl"
 # facebook: deanattali
   github: fjfernandezj
   twitter: franjofernandez
